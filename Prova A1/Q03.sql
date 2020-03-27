@@ -15,6 +15,6 @@ CREATE TABLE `inscricao` (
 	`ano` YEAR (4) NOT NULL ,
 	`semestre` INT (1) NOT NULL , 
 	`aprovado` BOOLEAN () NOT NULL ,
-	`classif` SAMLLINT (2) NOT NULL
+	`classif` SMALLINT (2) NOT NULL
 );
 
