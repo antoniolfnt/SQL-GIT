@@ -47,7 +47,7 @@ FOREIGN KEY(matricula) REFERENCES aluno(matricula);
 ALTER TABLE historico ADD CONSTRAINT disciplina
 FOREIGN KEY(codigo) REFERENCES disciplina(codigo);
 
-E)#Criar uma restrição que não permita notas menores que zero.
+E)#Criar uma restrição que não permita notas menores que "0".
 ALTER TABLE HISTORICO ADD CONSTRAINT nota CHECK(nota>=0)
 
 
