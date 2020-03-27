@@ -1,9 +1,3 @@
-CREATE TABLE `entregador` (
-	`numero` CHAR (7) NOT NULL ,
-	`nome` CHAR (25) NOT NULL ,
-	`telefone` INT (20) NOT NULL
-);
-
 CREATE TABLE `disciplina`(
 	`codigo` CHAR (4) NOT NULL ,
 	`nome` CHAR (50) NOT NULL 
