@@ -58,10 +58,25 @@ FROM products INNER JOIN providers
 ON providers.id = products.id_providers  
 WHERE providers.name like 'P%' AND products.amount BETWEEN '10' AND '20' 
 
+--nome dos clientes que sejam pessoa jurídica.
 SELECT customers.name
 FROM customers 
-WHERE customers.id NOT IN(
+WHERE customers.id IN(
     SELECT legal_person.id_customers
     FROM legal_person 
     WHERE legal_person.id_customers = customers.id
 );
+
+-- count por registros distintos
+SELECT sn_prematuro
+	  ,COUNT(*)
+FROM admissao_co
+group by sn_prematuro
+order by 2 desc
+
+--produtos cuja quantidade seja maior que 100 e o código da categoria seja 1,2,3,6 ou 9
+SELECT products.name
+      ,categories.name
+FROM products INNER JOIN categories
+ON categories.id = products.id_categories 
+WHERE products.amount > 100 AND categories.id IN (1, 2, 3, 6, 9)
