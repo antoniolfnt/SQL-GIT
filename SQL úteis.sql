@@ -115,3 +115,8 @@ SELECT candidate.name,
     round((score.math*2 + score.specific*3 + score.project_plan*5) / 10.0, 2)
     AS avg FROM candidate, score
     WHERE candidate.id = score.candidate_id ORDER BY avg DESC;
+
+-- selecionar os nomes e o dia do mês que cada cliente deve pagar sua parcela.	
+SELECT name
+	  ,CAST(extract(day from payday) as INTEGER) as day 
+FROM loan;
