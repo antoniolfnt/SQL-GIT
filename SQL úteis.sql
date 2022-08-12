@@ -80,3 +80,38 @@ SELECT products.name
 FROM products INNER JOIN categories
 ON categories.id = products.id_categories 
 WHERE products.amount > 100 AND categories.id IN (1, 2, 3, 6, 9)
+
+--Quantidades de Cidades por Clientes
+select COUNT(distinct(city))
+from customers 
+
+--Máscara de CPF
+SELECT SUBSTRING(cpf, 1, 3) || '.' ||
+       SUBSTRING(cpf, 4, 3) || '.' ||
+       SUBSTRING(cpf, 7, 3) || '-' ||
+       SUBSTRING(cpf, 10, 2)
+FROM natural_person;
+
+-- nome do advogado que tem menos e mais clientes e a média de clientes dos advogados.
+(SELECT name, customers_number
+FROM lawyers
+ORDER BY customers_number DESC
+LIMIT 1)
+
+UNION ALL
+
+(SELECT name, customers_number
+FROM lawyers
+ORDER BY customers_number ASC
+LIMIT 1)
+
+UNION ALL
+
+(SELECT 'Average', round(AVG(customers_number), 0)
+FROM lawyers)
+
+-- nome e pontuação final(com duas casas) ordenado + to -
+SELECT candidate.name,
+    round((score.math*2 + score.specific*3 + score.project_plan*5) / 10.0, 2)
+    AS avg FROM candidate, score
+    WHERE candidate.id = score.candidate_id ORDER BY avg DESC;
