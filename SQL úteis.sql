@@ -120,3 +120,31 @@ SELECT candidate.name,
 SELECT name
 	  ,CAST(extract(day from payday) as INTEGER) as day 
 FROM loan;
+
+-- substituir todo caractere 'H1' ( Hemaglutinina ) por 'X' ( Xenomorphina ).
+select replace(name, 'H1', 'X') 
+from virus
+
+-- selecionar o id, a senha atual e a senha transformada em MD5.
+select id
+      ,password
+	  ,md5(password) as "MD5"
+from account 
+
+-- Quanto ganha um médico?
+SELECT
+	doctors.name,
+	ROUND(SUM((attendances.hours * 150)+((attendances.hours * 15)*work_shifts.bonus)*.1), 1) AS salary
+FROM doctors, attendances, work_shifts
+WHERE
+	doctors.id=attendances.id_doctor
+    AND work_shifts.id=attendances.id_work_shift
+GROUP BY doctors.name
+ORDER BY salary DESC;
+
+
+-- Qual é o valor atributo mais frequente, ou seja, a moda estatística desses valores?
+SELECT amount AS most_frequent_value 
+from value_table
+GROUP BY amount 
+ORDER BY COUNT(*) DESC LIMIT 1;
