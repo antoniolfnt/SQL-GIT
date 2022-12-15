@@ -148,3 +148,9 @@ SELECT amount AS most_frequent_value
 from value_table
 GROUP BY amount 
 ORDER BY COUNT(*) DESC LIMIT 1;
+
+-- Retirar aspas das palavras
+select replace(_regiao, "'","") as Região
+	   ,count(*) as qtd
+from Covid.dados_covid_nacional
+group by 1;
