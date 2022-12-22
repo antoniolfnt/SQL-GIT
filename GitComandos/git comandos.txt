@@ -1,0 +1,20 @@
+# Cria repostitório local
+$git init
+# Conecta o repositório remoto ao local
+$git remote add origin <url http do repositorio>
+# Configuração inicial (nome e email)
+$git config [--local | --global | --system] <key> [<value>] 
+local: aplica para o repositório corrente
+global: todo repositorio do usuário corrente 
+sytem: aplica para todos usuários e todos repositorios
+$git config --local user.name "Antonio Neto-local"
+$git config --local user.email "antoniolfnt@gmail.com"
+# Cria ALIAS para mostar o log
+$git config --global alias.hist 'log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
+# Exibe histórico de commits (LOG)
+$git hist
+# Adiciona o arquivo antes do commit
+$git add <file>
+# Commit
+$git commit -m "adding new files"
+(-m para dicionar mensagem)
