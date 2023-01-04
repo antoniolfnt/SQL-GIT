@@ -1,6 +1,9 @@
 # Cria repostitório local
 $git init
 
+#Clona um rempositório remoto para o local
+$git clone <url HTTPS>
+
 # Conecta o repositório remoto ao local
 $git remote add origin <url http do repositorio>
 
