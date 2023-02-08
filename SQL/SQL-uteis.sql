@@ -154,3 +154,7 @@ select replace(_regiao, "'","") as Região
 	   ,count(*) as qtd
 from Covid.dados_covid_nacional
 group by 1;
+
+-- inserindo campos nulos
+INSERT INTO core.tb_param_alert (cd_cliente, cliente, cd_erro01, pct_erro01, cd_erro02, pct_erro02, cd_erro03, pct_erro03, cd_erro04, pct_erro04, cd_erro05, pct_erro05)
+values (1, 'bafgt', 'fl_check_nr', 0.02,'fl_check_nr_inv', 0.02, 'fl_check_cdcust', 0.02, null, null, null, null);
